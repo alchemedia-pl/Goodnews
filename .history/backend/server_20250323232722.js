@@ -113,7 +113,7 @@ app.post('/api/preferences', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(FRONTEND_PATH, 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.listen(PORT, () => {
