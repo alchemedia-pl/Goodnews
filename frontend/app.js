@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react"
+
 document.addEventListener('DOMContentLoaded', () => {
   const newsContainer = document.getElementById('news-container');
   const categoryFilters = document.querySelectorAll('.category-filter');
