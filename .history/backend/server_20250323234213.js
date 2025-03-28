@@ -4,6 +4,7 @@ const axios = require('axios');
 const Parser = require('rss-parser');
 const natural = require('natural');
 const cors = require('cors');
+const FRONTEND_PATH = path.resolve(__dirname, '../frontend');
 
 const app = express();
 const parser = new Parser();
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(FRONTEND_PATH));
 
 // In-memory storage (replace with database in production)
 let cachedNews = [];
@@ -108,6 +110,10 @@ app.post('/api/preferences', (req, res) => {
   // In a real app, save to database
   console.log('Received preferences:', req.body);
   res.json({ success: true });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(FRONTEND_PATH, 'index.html'));
 });
 
 app.listen(PORT, () => {

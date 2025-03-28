@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fetch news based on selected categories
   async function fetchNews() {
     const categories = getSelectedCategories();
-    const url = `http://localhost:3000/api/news?categories=${categories.join(',')}`;
+    const url = `/api/news?categories=${categories.join(',')}`;
     
     try {
       const response = await fetch(url);
