@@ -1,4 +1,4 @@
-// server.js - Express backend for news aggregator
+// server.js - Express backend for news aggregato
 const express = require('express');
 const axios = require('axios');
 const Parser = require('rss-parser');
